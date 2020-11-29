@@ -46,21 +46,31 @@ class Form {
     }) */
 
     this.startButton.mousePressed(()=>{
-      background("#8d4585")
+      background(scene);
       this.about.hide();
       this.startButton.hide();
 
 
-      this.input.position(displayWidth/2 - 40, 80);
+      this.input.position(displayWidth/2 - 40, 150);
+      this.input.style('font-size','20px')
 
-      this.map.html("Map")
-      this.map.position(displayWidth/2 - 40, 110);
+      this.map.html("Choose your Map")
+      this.map.position(displayWidth/2 - 80, 180);
+      this.map.style("color","white")
 
-      this.map1.position(displayWidth/2 - 40, 130);
-      this.map2.position(displayWidth/2 - 40, 150);
-      this.map3.position(displayWidth/2 - 40, 170);
+      this.map1.position(displayWidth/2 + 40, 250);
+      this.map1.style('background-color',"grey")
+      this.map1.style('font-size','20px')
+      this.map2.position(displayWidth/2 + 40, 300);
+      this.map2.style('background-color',"green")
+      this.map2.style('font-size','20px')
+      this.map3.position(displayWidth/2 + 40, 350);
+      this.map3.style('background-color',"blue")
+      this.map3.style('font-size','20px')
 
-      this.play.position(displayWidth/2 - 70, 200);
+      this.play.position(displayWidth/2 - 70, 420);
+      this.play.style('background-color',"yellow")
+      this.play.style('font-size','24px')
       
       
       playerCount+=1;
@@ -72,11 +82,31 @@ class Form {
       
     });
 
+    this.map1.mousePressed(()=>{
+        map="castle"
+    })
+
+    this.map2.mousePressed(()=>{
+        map="jungle"
+    })
+
+    this.map3.mousePressed(()=>{
+        map="underwater"
+    })
+
     this.play.mousePressed(()=>{
+        if (map==="castle") {
+          background(castle)
+        } else if(map==="underwater") {
+          background(underwater)
+        } else {
+          background(jungle)
+        }
         player.name = this.input.value();
         player.update();
         this.greeting.html("Hello " + player.name)
         this.greeting.position(displayWidth/2 - 70, displayHeight/4);
+        this.greeting.style('font-size','20px')
         game.update(1);
         this.play.hide();
         this.input.hide();

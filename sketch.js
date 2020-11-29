@@ -11,6 +11,9 @@ var form, player, game;
 var cars, car1, car2, car3, car4;
 var a,b,c,d,e
 var scene
+var jungle, castle, underwater
+
+var map="jungle"
 
 function preload(){
   a=loadImage("images/car1.png")
@@ -19,6 +22,10 @@ function preload(){
   d=loadImage("images/car4.png")
   e=loadImage("images/track.jpg")
   scene=loadImage("images/background.jpg")
+  jungle=loadImage("images/jungle.jpg")
+  castle=loadImage("images/castle.jpg")
+  underwater=loadImage("images/underwater.jpg")
+
 }
 
 function setup(){
